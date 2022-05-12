@@ -4,17 +4,15 @@ package reverse_string
 
 func ReverseString(input string) (output string) {
 	// solution goes here
-	temp := []rune(input)
-	i := 0
-	for _, char := range input {
-		temp[len(input)-1-i] = char
-		i++
+	runes := []rune(input)
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
 	}
-	return string(temp)
+	return string(runes)
 }
 
 // func main() {
-// 	m := "test_string"
+// 	m := "абвгдеёжз"
 
 // 	fmt.Println(m)
 // 	fmt.Println(ReverseString(m))
